@@ -35,6 +35,11 @@ namespace Game
 		delete[] _board;
 	}
 
+	int TicTacToe::getDigits(int number)
+	{
+		return int(log10(number) + 1);
+	}
+
 	void TicTacToe::initializeBoard()
 	{
 		_board = new char* [MAX_SIZE];
@@ -64,33 +69,43 @@ namespace Game
 		cout << "\n*** TIC - TAC - TOE GAME ***";
 		cout << "\n****************************\n\n";
 
+		
+		int extraPaddingQuantity = getDigits(MAX_SIZE);
+		string bufferSpace = "";
+
+		for (int i = 0; i < extraPaddingQuantity; i++)
+		{
+			bufferSpace += " ";
+		}
+
 		for (int j = 0; j < MAX_SIZE; ++j)
 		{
-			cout << ((j == 0) ? "      " : "   ") << j + 1 << "    ";
+			cout << ((j == 0) ? bufferSpace + "     " : "   ") << j + 1 << "    ";
 		}
 
 		cout << "\n\n";
 
 		for (int i = 0; i < MAX_SIZE; ++i)
 		{
+			string tempBufferSpace = bufferSpace.substr(0, extraPaddingQuantity - getDigits(i + 1));
 
 			for (int j = 0; j < MAX_SIZE; ++j)
 			{
-				cout << ((j == 0) ? "      " : "   ") << " " << ((j != MAX_SIZE - 1) ? "   |" : "");
+				cout << ((j == 0) ? bufferSpace + "     " : "   ") << " " << ((j != MAX_SIZE - 1) ? "   |" : "");
 			}
 
 			cout << "\n";
 
 			for (int j = 0; j < MAX_SIZE; ++j)
 			{
-				cout << ((j == 0) ? (" " + std::to_string(i + 1) + "    ") : "   ") << _board[i][j] << ((j != MAX_SIZE - 1) ? "   |" : "");
+				cout << ((j == 0) ? (tempBufferSpace + " " + std::to_string(i + 1) + "    ") : "   ") << _board[i][j] << ((j != MAX_SIZE - 1) ? "   |" : "");
 			}
 
 			cout << "\n";
 
 			for (int j = 0; j < MAX_SIZE; ++j)
 			{
-				cout << ((j == 0) ? "      " : "   ") << " " << ((j != MAX_SIZE - 1) ? "   |" : "");
+				cout << ((j == 0) ? bufferSpace + "     " : "   ") << " " << ((j != MAX_SIZE - 1) ? "   |" : "");
 			}
 
 			cout << "\n";
@@ -101,14 +116,14 @@ namespace Game
 				{
 					for (int j = 0; j < MAX_SIZE; ++j)
 					{
-						cout << ((j == 0) ? "   -------" : ((j % 2 == 0 && WEAVE_BOARD_DISPLAY) ? "--------" : "|-------"));
+						cout << ((j == 0) ? bufferSpace + "  -------" : ((j % 2 == 0 && WEAVE_BOARD_DISPLAY) ? "--------" : "|-------"));
 					}
 				}
 				else
 				{
 					for (int j = 0; j < MAX_SIZE; ++j)
 					{
-						cout << ((j == 0) ? "   -------" : ((j % 2 == 1 && WEAVE_BOARD_DISPLAY) ? "--------" : "|-------"));
+						cout << ((j == 0) ? bufferSpace + "  -------" : ((j % 2 == 1 && WEAVE_BOARD_DISPLAY) ? "--------" : "|-------"));
 					}
 				}
 			}
@@ -157,17 +172,21 @@ namespace Game
 	int TicTacToe::winCheck(char symbol)
 	{
 		if (rowCheck(symbol))
+		{
 			return 1;
-
+		}
 		else if (columnCheck(symbol))
+		{
 			return 2;
-
+		}
 		else if (diagonalCheck(symbol))
+		{
 			return 3;
-
+		}
 		else
+		{
 			return 0;
-
+		}
 	}//End_of_Win_Check
 
 	bool TicTacToe::rowCheck(char symbol)

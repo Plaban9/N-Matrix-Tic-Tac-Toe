@@ -20,6 +20,7 @@ namespace Game
 		bool diagonalCheck(char symbol);
 		bool leftDiagonalCheck(char symbol);
 		bool rightDiagonalCheck(char symbol);
+		int getDigits(int number);
 
 	public:
 		TicTacToe(int maxSize = 3, bool isWeaveDisplay = true);
