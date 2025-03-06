@@ -23,10 +23,9 @@ namespace Game
 
 	public:
 		TicTacToe(int maxSize = 3, bool isWeaveDisplay = true);
-
-		void playGame();
-
 		~TicTacToe();
+
+		void playGame();		
 	};
 }
 

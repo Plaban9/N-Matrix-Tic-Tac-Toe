@@ -4,7 +4,7 @@
 
 int main()
 {
-	Game::TicTacToe game(3, false);
+	Game::TicTacToe game(3, false);	 // Grid Size, Weave Aesthetic Toggle
 
 	game.playGame();
 
