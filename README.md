@@ -23,7 +23,7 @@ Examples:
 ![7x7](Screenshots/TicTacToe_7x7.PNG?raw=true "7x7 Non-Weaved")
 
 
-- 5x5 Grid
+- 5x5 "Weaved" Grid
   
 ![5x5 Weaved](Screenshots/TicTacToe_5x5_Weaved.PNG?raw=true "5x5 Weaved")
 
@@ -33,7 +33,7 @@ Examples:
 ![8x8](Screenshots/TicTacToe_8x8.PNG?raw=true "8x8")
 
 
-- 8x8 Weaved Grid 
+- 8x8 "Weaved" Grid 
   
 ![8x8 Weaved](Screenshots/TicTacToe_8x8_Weaved.PNG?raw=true "8x8 Weaved")
 
@@ -43,6 +43,6 @@ Examples:
 ![9x9](Screenshots/TicTacToe_9x9.PNG?raw=true "9x9")
 
 
-- 9x9 Weaved Grid 
+- 9x9 "Weaved" Grid 
   
 ![9x9 Weaved](Screenshots/TicTacToe_9x9_Weaved.PNG?raw=true "9x9 Weaved")
